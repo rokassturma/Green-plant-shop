@@ -3,11 +3,6 @@ import './ComponnetsStyle/title.scss';
 
 export default function Title({ text1, text2, showLink }) {
 
-
-
-
-
-
     return (
 
         <>

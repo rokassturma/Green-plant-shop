@@ -9,7 +9,7 @@ export default function SectionCategories() {
     <section className="wrapper section-category">
 
 
-    <Title text1='Shop' text2='by Category' showLink={true}/>
+    <Title text1='Shop' text2='by Category' showLink={false}/>
     <CategoriesList />
     </section>
     
