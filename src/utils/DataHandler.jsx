@@ -16,12 +16,4 @@ export default function DataHandler({ loading, error, children }) {
         return (<>Error: {error}</>)
     }
     return (children)
-
-    return (
-        <>
-
-
-
-        </>
-    )
 }

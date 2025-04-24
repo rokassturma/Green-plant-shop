@@ -5,8 +5,6 @@ import { PlantsProvider } from './context/PlantsContext.jsx'
 
 createRoot(document.getElementById('root')).render(
     <PlantsProvider>
-
         <App />
-
     </PlantsProvider>
 )
