@@ -4,6 +4,7 @@ import SectionBest from "./Components/SectionBest";
 import SectionCategories from "./Components/SectionCategories";
 import SectionDeals from "./Components/SectionDeals";
 import SectionHot from "./Components/SectionHot";
+import SectionTestimonials from "./Components/SectionTestimonials";
 import TopBanner from "./Components/TopBanner";
 
 export default function App() {
@@ -18,7 +19,8 @@ export default function App() {
       <SectionBest />
       <SectionHot />
       <SectionDeals />
-
+      <SectionTestimonials />
+     
     </div>
   )
 }
