@@ -1,0 +1,42 @@
+.footer {
+    padding-top: 85px;
+
+
+    .footer-menu {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+
+        a {
+            color: $black;
+            font-weight: 600;
+            font-size: 16px;
+            display: inline-block;
+            padding: 5px;
+        }
+    }
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        margin: 24px 0 48px 0;
+
+        a {
+            padding: 5px;
+        }
+    }
+
+    .footer-banner {
+        min-height: 55px;
+        color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 16px;
+        font-weight: 400;
+        
+    }
+}
