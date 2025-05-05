@@ -1,28 +1,18 @@
-import Footer from "./Components/Footer";
-import Header from "./Components/Header";
-import Hero from "./Components/Hero";
-import SectionBest from "./Components/SectionBest";
-import SectionCategories from "./Components/SectionCategories";
-import SectionDeals from "./Components/SectionDeals";
-import SectionHot from "./Components/SectionHot";
-import SectionTestimonials from "./Components/SectionTestimonials";
-import TopBanner from "./Components/TopBanner";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import Layout from "./Components/layout/Layout";
 
-export default function App() {
 
+function App() {
 
   return (
-    <div>
-      <TopBanner />
-      <Header />
-      <Hero />
-      <SectionCategories />
-      <SectionBest />
-      <SectionHot />
-      <SectionDeals />
-      <SectionTestimonials />
-      <Footer />
-     
-    </div>
-  )
+
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<HomePage />} />
+      </Route>
+    </Routes>
+  );
 }
+
+export default App;
