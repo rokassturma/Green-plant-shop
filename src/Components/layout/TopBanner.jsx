@@ -1,4 +1,4 @@
-import './ComponnetsStyle/topBanner.scss'
+import '../ComponnetsStyle/topBanner.scss'
 
 
 export default function TopBanner() {
