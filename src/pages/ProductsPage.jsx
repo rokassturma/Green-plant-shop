@@ -1,7 +1,38 @@
+import './pagesStyle/productsPage.scss';
+import { useState } from "react";
+import PlantCardList from "../Components/PlantCardList";
+import SecondTitle from "../Components/SecondTitle";
+
 
 
 export default function ProductsPage() {
+
+  const [sortType, setSortType] = useState('deals');
+
+  const handleSortChange = (e) => {
+    setSortType(e.target.value);
+  }
+
   return (
-    <div className="example">Products</div>
+    <>
+      <SecondTitle big='Shop' small='Find the perfect plant for your space' />
+      <div className="wrapper productsContainer">
+        <aside className="aside">
+          Filters
+        </aside>
+        <div className="cardsContainer">
+          <div className="sortBlock">
+            <label htmlFor="sort">Sort by</label>
+            <select className='sort' id="sort" value={sortType} onChange={handleSortChange}>
+              <option value='hot'>Popular</option>
+              <option value='deals'>Biggest discount</option>
+              <option value='price-low'>Price (low to high)</option>
+              <option value='price-high'>Price (high to low)</option>
+            </select>
+          </div>
+          <PlantCardList filterType={sortType}/>
+        </div>
+      </div>
+    </>
   )
 }

@@ -9,6 +9,7 @@ import ReturnsPage from "./pages/ReturnsPage";
 import FaqPage from "./pages/FaqPage";
 import ShippingPage from "./pages/ShippingPage";
 import CartPage from "./pages/CartPage";
+import SingleProductPage from "./pages/SingleProductPage";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/faq" element={<FaqPage />} />
         <Route path="/shipping" element={<ShippingPage />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/products/:id" element={<SingleProductPage />} />
 
         <Route path="*" element={<PageNotFound />} />
       </Route>

@@ -1,0 +1,32 @@
+.productsContainer {
+    display: flex;
+    margin-top: 85px;
+
+
+    .aside {
+        background-color: red;
+        flex: 1;
+    }
+
+    .cardsContainer {
+        flex: 3;
+
+        .sortBlock {
+            font-size: 14px;
+            margin-right: 0;
+            margin-left: auto;
+            max-width: 250px;
+            color: $textgrey;
+            border: 1px solid $black;
+            padding: 0 10px;
+
+            .sort {
+                padding: 10px;
+                border: none;
+                outline: none;
+                font-family: 'Poppins';
+                font-weight: 600;
+            }
+        }
+    }
+}
