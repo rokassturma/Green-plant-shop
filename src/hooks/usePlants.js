@@ -7,7 +7,7 @@ export default function usePlants() {
     const context = useContext(PlantsContext);
 
     if (!context) {
-        throw new Error('Must be with Plants Provider');
+        throw new Error('Must be with Categories Provider');
     }
 
     return context;

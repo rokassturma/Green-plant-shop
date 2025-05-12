@@ -1,15 +1,11 @@
 import './ComponnetsStyle/categoriesList.scss';
-import useFetch from '../hooks/useFetch';
 import DataHandler from '../utils/DataHandler.jsx';
 import CategoryCard from './CategoryCard.jsx';
+import useCategories from '../hooks/useCategories.js';
 
 export default function CategoriesList() {
 
-    const { data: categories, loading, error } = useFetch(
-        'https://gist.githubusercontent.com/rokassturma/45a1b4601a981b72d1bbb41fc50dcc51/raw/899fda68d7ac4f7df606c7ada9b84f63b0b6a72e/data-category.json',
-        'categories',
-        'fileName'
-    );
+    const {categories, loading, error} = useCategories();
 
     return (
 
@@ -27,8 +23,5 @@ export default function CategoriesList() {
                 ))}
             </DataHandler>
         </div>
-
-
-
     )
 }

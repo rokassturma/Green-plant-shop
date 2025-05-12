@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import usePlants from '../hooks/usePlants'
 import DataHandler from '../utils/DataHandler';
 import './ComponnetsStyle/plantCardList.scss'
@@ -6,6 +7,8 @@ import PlantCard from './PlantCard';
 export default function PlantCardList({ filterType = '', limit = 0 }) {
 
     const { plants, loading, error } = usePlants();
+
+    const location = useLocation();
 
     const getFilteredPlants = (plants) => {
         let filtered = plants;
@@ -24,24 +27,36 @@ export default function PlantCardList({ filterType = '', limit = 0 }) {
 
     const filteredPlants = getFilteredPlants(plants);
 
+    const totalPlants = filteredPlants.length;
+    const allPlants = plants.length;
+
     return (
+        <>
+            {
+                location.pathname == '/products' &&
+                (
+                    < p className='plantsCounter'>
+                        Showing {totalPlants} from {allPlants} plants
+                    </p >
+                )
+            }
 
-        <div className='plantCardList'>
-            <DataHandler loading={loading} error={error}>
-                {
-                    filteredPlants.map(p => (
-                        <PlantCard
-                            key={p.id}
-                            imageSrc={p.imageSrc}
-                            title={p.title}
-                            price={p.price}
-                            discount={p.discount}
-                            plantId={p.id}
-                        />
-                    ))
-                }
-            </DataHandler>
-        </div>
-
-    )
+            <div className='plantCardList'>
+                <DataHandler loading={loading} error={error}>
+                    {
+                        filteredPlants.map(p => (
+                            <PlantCard
+                                key={p.id}
+                                imageSrc={p.imageSrc}
+                                title={p.title}
+                                price={p.price}
+                                discount={p.discount}
+                                plantId={p.id}
+                            />
+                        ))
+                    }
+                </DataHandler>
+            </div>
+        </>
+    );
 }

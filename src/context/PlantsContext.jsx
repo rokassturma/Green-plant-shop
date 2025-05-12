@@ -13,7 +13,7 @@ export function PlantsProvider({ children }) {
     );
     const value = { plants, loading, error };
 
-    console.log(plants);
+
     return (
         <PlantsContext.Provider value={value}>{children}</PlantsContext.Provider>
     )

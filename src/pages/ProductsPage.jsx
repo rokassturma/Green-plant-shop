@@ -2,6 +2,7 @@ import './pagesStyle/productsPage.scss';
 import { useState } from "react";
 import PlantCardList from "../Components/PlantCardList";
 import SecondTitle from "../Components/SecondTitle";
+import CategoryFilter from '../Components/CategoryFilter';
 
 
 
@@ -18,7 +19,7 @@ export default function ProductsPage() {
       <SecondTitle big='Shop' small='Find the perfect plant for your space' />
       <div className="wrapper productsContainer">
         <aside className="aside">
-          Filters
+          <CategoryFilter />
         </aside>
         <div className="cardsContainer">
           <div className="sortBlock">
@@ -30,7 +31,7 @@ export default function ProductsPage() {
               <option value='price-high'>Price (high to low)</option>
             </select>
           </div>
-          <PlantCardList filterType={sortType}/>
+          <PlantCardList filterType={sortType} />
         </div>
       </div>
     </>
