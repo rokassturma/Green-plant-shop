@@ -3,15 +3,23 @@ import { useState } from "react";
 import PlantCardList from "../Components/PlantCardList";
 import SecondTitle from "../Components/SecondTitle";
 import CategoryFilter from '../Components/CategoryFilter';
+import PriceFilter from '../Components/PriceFilter';
 
 
 
 export default function ProductsPage() {
 
   const [sortType, setSortType] = useState('deals');
+  const [selectedCategories, setSelectedCategories] = useState([]);
 
+  //Sorting change
   const handleSortChange = (e) => {
     setSortType(e.target.value);
+  }
+
+  //Sorting category change
+  const handleCategoryChange = (categories) => {
+    setSelectedCategories(categories || []);
   }
 
   return (
@@ -19,7 +27,8 @@ export default function ProductsPage() {
       <SecondTitle big='Shop' small='Find the perfect plant for your space' />
       <div className="wrapper productsContainer">
         <aside className="aside">
-          <CategoryFilter />
+          <CategoryFilter onCategoryChange={handleCategoryChange} />
+          <PriceFilter />
         </aside>
         <div className="cardsContainer">
           <div className="sortBlock">
@@ -31,7 +40,7 @@ export default function ProductsPage() {
               <option value='price-high'>Price (high to low)</option>
             </select>
           </div>
-          <PlantCardList filterType={sortType} />
+          <PlantCardList filterType={sortType} selectedCategories={selectedCategories} />
         </div>
       </div>
     </>

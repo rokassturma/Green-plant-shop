@@ -4,15 +4,25 @@ import DataHandler from '../utils/DataHandler';
 import './ComponnetsStyle/plantCardList.scss'
 import PlantCard from './PlantCard';
 
-export default function PlantCardList({ filterType = '', limit = 0 }) {
+export default function PlantCardList({ filterType = '', limit = 0, selectedCategories = [] }) {
 
     const { plants, loading, error } = usePlants();
 
     const location = useLocation();
 
     const getFilteredPlants = (plants) => {
-        let filtered = plants;
 
+        /* Copy of original array */
+        let filtered = [...plants];
+
+        /* Filter by category */
+        if (selectedCategories.length > 0 && !selectedCategories.includes('all')) {
+            filtered = filtered.filter(plant =>
+                selectedCategories.includes(plant.categoryId)
+            );
+        }
+
+        /* Sorting by type */
         if (filterType === 'hot') {
             filtered.sort((a, b) => b.rating - a.rating);
         } else if (filterType === 'deals') {
@@ -26,7 +36,6 @@ export default function PlantCardList({ filterType = '', limit = 0 }) {
     }
 
     const filteredPlants = getFilteredPlants(plants);
-
     const totalPlants = filteredPlants.length;
     const allPlants = plants.length;
 
