@@ -7,10 +7,19 @@ import PriceFilter from '../Components/PriceFilter';
 
 
 
-export default function ProductsPage() {
+export default function ProductsPage({ onPriceChange }) {
 
   const [sortType, setSortType] = useState('deals');
   const [selectedCategories, setSelectedCategories] = useState([]);
+
+  const [priceRange, setPriceRange] = useState([0, Infinity]);
+
+
+  //Price changing function
+  const handlePriceChange = (value) => {
+    setPriceRange(value);
+    onPriceChange(value);
+  }
 
   //Sorting change
   const handleSortChange = (e) => {
@@ -28,7 +37,7 @@ export default function ProductsPage() {
       <div className="wrapper productsContainer">
         <aside className="aside">
           <CategoryFilter onCategoryChange={handleCategoryChange} />
-          <PriceFilter />
+          <PriceFilter onPriceChange={handlePriceChange} />
         </aside>
         <div className="cardsContainer">
           <div className="sortBlock">
@@ -40,7 +49,7 @@ export default function ProductsPage() {
               <option value='price-high'>Price (high to low)</option>
             </select>
           </div>
-          <PlantCardList filterType={sortType} selectedCategories={selectedCategories} />
+          <PlantCardList filterType={sortType} selectedCategories={selectedCategories} priceRange={priceRange} />
         </div>
       </div>
     </>
