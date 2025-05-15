@@ -1,7 +1,7 @@
 import useFetch from '../hooks/useFetch';
 import './ComponnetsStyle/bestList.scss'
 import DataHandler from '../utils/DataHandler';
-import BestCard from './bestCard';
+import BestCard from './BestCard';
 
 
 
