@@ -58,16 +58,21 @@ export default function PlantCardList({
 
       <div className="plantCardList">
         <DataHandler loading={loading} error={error}>
-          {filteredPlants.map(p => (
-            <PlantCard
-              key={p.id}
-              imageSrc={p.imageSrc}
-              title={p.title}
-              price={p.price}
-              discount={p.discount}
-              plantId={p.id}
-            />
-          ))}
+          {filteredPlants.length === 0 ? (
+            <p className='noResults'>Your search did not match any criteria</p>
+          ) : (
+            filteredPlants.map(p => (
+              <PlantCard
+                key={p.id}
+                imageSrc={p.imageSrc}
+                title={p.title}
+                price={p.price}
+                discount={p.discount}
+                plantId={p.id}
+              />
+            ))
+          )
+          }
         </DataHandler>
       </div>
     </>

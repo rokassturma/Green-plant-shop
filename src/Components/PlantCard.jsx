@@ -9,10 +9,19 @@ export default function PlantCard({ imageSrc, title, price, discount, plantId })
         ? (price * (1 - discount / 100)).toFixed(2)
         : price.toFixed(2);
 
+    const plantData = {
+        title,
+        plantId,
+        price,
+        discount,
+        imageSrc,
+        discountedPrice
+    }
+
     return (
 
         <div className='plantCard'>
-            <Link className='plantCardLink' to={`/products/${plantId}`}>
+            <Link className='plantCardLink' to={`/products/${plantId}`}> {/* jei naudojamas state, įrašyti state={} */}
                 <div className='imageBox'>
                     {
                         discount > 0 && (

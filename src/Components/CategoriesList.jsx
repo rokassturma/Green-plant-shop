@@ -19,6 +19,7 @@ export default function CategoriesList() {
                         imageSrc={elem.imageSrc}
                         title={elem.title}
                         key={elem.id}
+                        categoryId={elem.id}
                     />
                 ))}
             </DataHandler>
